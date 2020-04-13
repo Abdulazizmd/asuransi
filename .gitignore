@@ -1,0 +1,44 @@
+files/*
+!files/.gitkeep
+config/db.php
+config/db_kinerja.php
+# phpstorm project files
+.idea
+
+# phpintel project files
+.phpintel
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# file exports
+/web/exports/*
+!/web/exports/.gitkeep
+
+# lampiran
+/web/uploads/*
+!/web/uploads/lampiran
+/web/uploads/lampiran/*
+!/web/uploads/lampiran/.gitkeep
