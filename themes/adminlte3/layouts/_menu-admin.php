@@ -8,26 +8,26 @@ use maswahyu\adminlte\widgets\Menu;
 <?= Menu::widget(['items' => [
     ['icon' => 'fa fa-tachometer-alt', 'label' => 'Dashboard', 'url' => ['/dashboard/index']],
 
-    ['label' => 'Kegiatan', 'icon' => 'fa fa-check', 'url' => '#', 'items' => [
-        ['icon' => 'far fa-circle', 'label' => 'List Kegiatan', 'url' => ['/kegiatan/index']],
-        ['icon' => 'far fa-circle', 'label' => 'Tambah Kegiatan', 'url' => ['/kegiatan/create']],
+    ['label' => 'Polis', 'icon' => 'fa fa-handshake', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Polis', 'url' => ['/polis/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Polis', 'url' => ['/polis/create']],
         /*['icon' => 'far fa-circle', 'label' => 'Statistik kegiatan', 'url' => ['/output/index']],*/
     ]],
 
     ['label' => 'DATA MASTER',['class' => 'nav-header']],
-    ['label' => 'Pegawai', 'icon' => 'fa fa-users', 'url' => ['/pegawai/create'], 'items' => [
-        ['icon' => 'far fa-circle', 'label' => 'List Pegawai', 'url' => ['/pegawai/index']],
-        ['icon' => 'far fa-circle', 'label' => 'Tambah Pegawai', 'url' => ['/pegawai/create']],
+    ['label' => 'Supervisor', 'icon' => 'fa fa-graduation-cap', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Supervisor', 'url' => ['/supervisor/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Supervisor', 'url' => ['/supervisor/create']],
     ]],
 
-    ['label' => 'Jabatan', 'icon' => 'fa fa-graduation-cap', 'url' => ['/jabatan/index'], 'items' => [
-        ['icon' => 'far fa-circle', 'label' => 'List Jabatan', 'url' => ['/jabatan/index']],
-        ['icon' => 'far fa-circle', 'label' => 'Tambah Jabatan', 'url' => ['/jabatan/create']],
+    ['label' => 'Agen', 'icon' => 'fa fa-users', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Agen', 'url' => ['/agen/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Agen', 'url' => ['/agen/create']],
     ]],
 
-    ['label' => 'Golongan', 'icon' => 'fa fa-cubes', 'url' => ['/golongan/index'], 'items' => [
-        ['icon' => 'far fa-circle', 'label' => 'List Golongan', 'url' => ['/golongan/index']],
-        ['icon' => 'far fa-circle', 'label' => 'Tambah Golongan', 'url' => ['/golongan/create']],
+    ['label' => 'Pekerjaan', 'icon' => 'fa fa-briefcase', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Pekerjaan', 'url' => ['/pekerjaan/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Pekerjaan', 'url' => ['/pekerjaan/create']],
     ]],
 
     ['label' => 'SISTEM',['class' => 'nav-header']],
