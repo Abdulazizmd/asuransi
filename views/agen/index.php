@@ -36,12 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             [
-                'attribute' => 'id',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],
-            [
                 'attribute' => 'id_supervisor',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],

@@ -32,15 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\SerialColumn',
                 'header' => 'No',
                 'headerOptions' => ['style' => 'text-align:center'],
-                'contentOptions' => ['style' => 'text-align:center']
+                'contentOptions' => ['style' => 'text-align:center; width:20px']
             ],
 
-            [
-                'attribute' => 'id',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],
             [
                 'attribute' => 'nama',
                 'format' => 'raw',
@@ -50,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'contentOptions' => ['style' => 'text-align:center;width:80px']
+                'contentOptions' => ['style' => 'text-align:center;width:100px']
             ],
         ],
     ]); ?>
