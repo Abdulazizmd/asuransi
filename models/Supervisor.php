@@ -41,4 +41,27 @@ class Supervisor extends \yii\db\ActiveRecord
             'nama' => 'Nama',
         ];
     }
+
+    public static function getList()
+    {
+        $query = static::find();
+
+        /*if (User::isNasabah()){
+            $query->andWhere(['id' => Yii::$app->user->identity->id_nasabah]);
+        }*/
+
+        $list = [];
+
+        foreach($query->all() as $data) {
+            $list[$data->id] = $data->nama;
+        }
+        return $list;
+    }
+
+    public static function getCount()
+    {
+        $query = static::find();
+
+        return $query->count();
+    }
 }

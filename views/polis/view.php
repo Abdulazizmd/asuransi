@@ -28,6 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => $model->id,
             ],
             [
+                'attribute' => 'no_polis',
+                'format' => 'raw',
+                'value' => $model->no_polis,
+            ],
+            [
                 'attribute' => 'nama',
                 'format' => 'raw',
                 'value' => $model->nama,

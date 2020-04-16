@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "polis".
  *
  * @property int $id
+ * @property int $no_polis
  * @property string $nama
  * @property string $alamat
  * @property int $id_pekerjaan
@@ -35,8 +36,8 @@ class Polis extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama'], 'required'],
-            [['id_pekerjaan', 'uang_pertanggungan', 'id_jenis_asuransi', 'premi', 'id_agen', 'id_supervisor'], 'integer'],
+            [['no_polis', 'nama'], 'required'],
+            [['no_polis', 'id_pekerjaan', 'uang_pertanggungan', 'id_jenis_asuransi', 'premi', 'id_agen', 'id_supervisor'], 'integer'],
             [['tanggal'], 'safe'],
             [['nama', 'alamat', 'nama_tertanggung'], 'string', 'max' => 255],
         ];
@@ -49,6 +50,7 @@ class Polis extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'no_polis' => 'No Polis',
             'nama' => 'Nama',
             'alamat' => 'Alamat',
             'id_pekerjaan' => 'Id Pekerjaan',

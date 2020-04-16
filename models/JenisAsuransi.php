@@ -5,20 +5,20 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "agen".
+ * This is the model class for table "jenis_asuransi".
  *
  * @property int $id
- * @property int $id_supervisor
  * @property string $nama
+ * @property string $keterangan
  */
-class Agen extends \yii\db\ActiveRecord
+class JenisAsuransi extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'agen';
+        return 'jenis_asuransi';
     }
 
     /**
@@ -27,9 +27,8 @@ class Agen extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_supervisor', 'nama'], 'required'],
-            [['id_supervisor'], 'integer'],
-            [['nama'], 'string', 'max' => 255],
+            [['nama'], 'required'],
+            [['nama', 'keterangan'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,13 +39,8 @@ class Agen extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_supervisor' => 'Supervisor',
             'nama' => 'Nama',
+            'keterangan' => 'Keterangan',
         ];
-    }
-
-    public function getSupervisor()
-    {
-        return $this->hasOne(Supervisor::class, ['id' => 'id_supervisor']);
     }
 }

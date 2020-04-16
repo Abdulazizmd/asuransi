@@ -3,6 +3,10 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+use kartik\select2\Select2;
+
+use app\models\Supervisor;
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Agen */
 /* @var $form yii\widgets\ActiveForm */
@@ -31,7 +35,15 @@ use yii\bootstrap\ActiveForm;
 
         <?= $form->errorSummary($model); ?>
 
-        <?= $form->field($model, 'id_supervisor')->textInput() ?>
+        <?= $form->field($model, 'id_supervisor')->widget(Select2::class, [
+            'data' =>  Supervisor::getList(),
+            'options' => [
+                'placeholder' => '- Pilih Supervisor -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
 
         <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 

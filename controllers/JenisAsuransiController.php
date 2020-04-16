@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Polis;
-use app\models\PolisSearch;
+use app\models\JenisAsuransi;
+use app\models\JenisAsuransiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PolisController implements the CRUD actions for Polis model.
+ * JenisAsuransiController implements the CRUD actions for JenisAsuransi model.
  */
-class PolisController extends Controller
+class JenisAsuransiController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class PolisController extends Controller
     }
 
     /**
-     * Lists all Polis models.
+     * Lists all JenisAsuransi models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PolisSearch();
+        $searchModel = new JenisAsuransiSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         if(Yii::$app->request->get('export')) {
@@ -49,7 +49,7 @@ class PolisController extends Controller
     }
 
     /**
-     * Displays a single Polis model.
+     * Displays a single JenisAsuransi model.
      * @param integer $id
      * @return mixed
      */
@@ -61,13 +61,13 @@ class PolisController extends Controller
     }
 
     /**
-     * Creates a new Polis model.
+     * Creates a new JenisAsuransi model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Polis();
+        $model = new JenisAsuransi();
 
         $referrer = Yii::$app->request->referrer;
 
@@ -92,7 +92,7 @@ class PolisController extends Controller
     }
 
     /**
-     * Updates an existing Polis model.
+     * Updates an existing JenisAsuransi model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -126,7 +126,7 @@ class PolisController extends Controller
     }
 
     /**
-     * Deletes an existing Polis model.
+     * Deletes an existing JenisAsuransi model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -147,15 +147,15 @@ class PolisController extends Controller
     }
 
     /**
-     * Finds the Polis model based on its primary key value.
+     * Finds the JenisAsuransi model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Polis the loaded model
+     * @return JenisAsuransi the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Polis::findOne($id)) !== null) {
+        if (($model = JenisAsuransi::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -185,67 +185,40 @@ class PolisController extends Controller
         $sheet->getColumnDimension('A')->setWidth(10);
         $sheet->getColumnDimension('B')->setWidth(20);
         $sheet->getColumnDimension('C')->setWidth(20);
-        $sheet->getColumnDimension('D')->setWidth(20);
-        $sheet->getColumnDimension('E')->setWidth(20);
-        $sheet->getColumnDimension('F')->setWidth(20);
-        $sheet->getColumnDimension('G')->setWidth(20);
-        $sheet->getColumnDimension('H')->setWidth(20);
-        $sheet->getColumnDimension('I')->setWidth(20);
-        $sheet->getColumnDimension('J')->setWidth(20);
-        $sheet->getColumnDimension('K')->setWidth(20);
-        $sheet->getColumnDimension('L')->setWidth(20);
 
         $sheet->setCellValue('A3', 'No');
-        $sheet->setCellValue('B3', 'No Polis');
-        $sheet->setCellValue('C3', 'Nama');
-        $sheet->setCellValue('D3', 'Alamat');
-        $sheet->setCellValue('E3', 'Id Pekerjaan');
-        $sheet->setCellValue('F3', 'Nama Tertanggung');
-        $sheet->setCellValue('G3', 'Uang Pertanggungan');
-        $sheet->setCellValue('H3', 'Id Jenis Asuransi');
-        $sheet->setCellValue('I3', 'Premi');
-        $sheet->setCellValue('J3', 'Id Agen');
-        $sheet->setCellValue('K3', 'Id Supervisor');
-        $sheet->setCellValue('L3', 'Tanggal');
+        $sheet->setCellValue('B3', 'Nama');
+        $sheet->setCellValue('C3', 'Keterangan');
 
-        $PHPExcel->getActiveSheet()->setCellValue('A1', 'Data Polis');
+        $PHPExcel->getActiveSheet()->setCellValue('A1', 'Data JenisAsuransi');
 
-        $PHPExcel->getActiveSheet()->mergeCells('A1:L1');
+        $PHPExcel->getActiveSheet()->mergeCells('A1:C1');
 
-        $sheet->getStyle('A1:L3')->getFont()->setBold(true);
-        $sheet->getStyle('A1:L3')->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A1:C3')->getFont()->setBold(true);
+        $sheet->getStyle('A1:C3')->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
         $row = 3;
         $i=1;
 
-        $searchModel = new PolisSearch();
+        $searchModel = new JenisAsuransiSearch();
 
         foreach($searchModel->getQuerySearch($params)->all() as $data){
             $row++;
             $sheet->setCellValue('A' . $row, $i);
-            $sheet->setCellValue('B' . $row, $data->no_polis);
-            $sheet->setCellValue('C' . $row, $data->nama);
-            $sheet->setCellValue('D' . $row, $data->alamat);
-            $sheet->setCellValue('E' . $row, $data->id_pekerjaan);
-            $sheet->setCellValue('F' . $row, $data->nama_tertanggung);
-            $sheet->setCellValue('G' . $row, $data->uang_pertanggungan);
-            $sheet->setCellValue('H' . $row, $data->id_jenis_asuransi);
-            $sheet->setCellValue('I' . $row, $data->premi);
-            $sheet->setCellValue('J' . $row, $data->id_agen);
-            $sheet->setCellValue('K' . $row, $data->id_supervisor);
-            $sheet->setCellValue('L' . $row, $data->tanggal);
+            $sheet->setCellValue('B' . $row, $data->nama);
+            $sheet->setCellValue('C' . $row, $data->keterangan);
             
             $i++;
         }
 
-        $sheet->getStyle('A3:L' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('D3:L' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('E3:L' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A3:C' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('D3:C' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('E3:C' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 
         $sheet->getStyle('C' . $row)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
-        $sheet->getStyle('A3:L' . $row)->applyFromArray($setBorderArray);
+        $sheet->getStyle('A3:C' . $row)->applyFromArray($setBorderArray);
 
         $path = 'exports/';
         $filename = time() . '_DataPenduduk.xlsx';

@@ -25,6 +25,11 @@ use maswahyu\adminlte\widgets\Menu;
         ['icon' => 'far fa-circle', 'label' => 'Tambah Agen', 'url' => ['/agen/create']],
     ]],
 
+    ['label' => 'Jenis Asuransi', 'icon' => 'fa fa-list', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Jenis Asuransi', 'url' => ['/jenis-asuransi/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Jenis Asuransi', 'url' => ['/jenis-asuransi/create']],
+    ]],
+
     ['label' => 'Pekerjaan', 'icon' => 'fa fa-briefcase', 'url' => '#', 'items' => [
         ['icon' => 'far fa-circle', 'label' => 'List Pekerjaan', 'url' => ['/pekerjaan/index']],
         ['icon' => 'far fa-circle', 'label' => 'Tambah Pekerjaan', 'url' => ['/pekerjaan/create']],

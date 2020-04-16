@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Polis */
+/* @var $model app\models\JenisAsuransi */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -22,36 +22,18 @@ use yii\bootstrap\ActiveForm;
     ]
 ]); ?>
 
-<div class="polis-form card card-primary">
+<div class="jenis-asuransi-form card card-primary">
 
     <div class="card-header">
-        <h3 class="card-title">Form Polis</h3>
+        <h3 class="card-title">Form Jenis Asuransi</h3>
     </div>
 	<div class="card-body">
 
         <?= $form->errorSummary($model); ?>
 
-        <?= $form->field($model, 'no_polis')->textInput() ?>
-
         <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'id_pekerjaan')->textInput() ?>
-
-        <?= $form->field($model, 'nama_tertanggung')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'uang_pertanggungan')->textInput() ?>
-
-        <?= $form->field($model, 'id_jenis_asuransi')->textInput() ?>
-
-        <?= $form->field($model, 'premi')->textInput() ?>
-
-        <?= $form->field($model, 'id_agen')->textInput() ?>
-
-        <?= $form->field($model, 'id_supervisor')->textInput() ?>
-
-        <?= $form->field($model, 'tanggal')->textInput() ?>
+        <?= $form->field($model, 'keterangan')->textArea(['maxlength' => true]) ?>
 
         <?= Html::hiddenInput('referrer',$referrer); ?>
 

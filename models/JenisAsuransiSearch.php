@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Polis;
+use app\models\JenisAsuransi;
 
 /**
- * PolisSearch represents the model behind the search form of `app\models\Polis`.
+ * JenisAsuransiSearch represents the model behind the search form of `app\models\JenisAsuransi`.
  */
-class PolisSearch extends Polis
+class JenisAsuransiSearch extends JenisAsuransi
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PolisSearch extends Polis
     public function rules()
     {
         return [
-            [['id', 'no_polis', 'id_pekerjaan', 'uang_pertanggungan', 'id_jenis_asuransi', 'premi', 'id_agen', 'id_supervisor'], 'integer'],
-            [['nama', 'alamat', 'nama_tertanggung', 'tanggal'], 'safe'],
+            [['id'], 'integer'],
+            [['nama', 'keterangan'], 'safe'],
         ];
     }
 
@@ -42,7 +42,7 @@ class PolisSearch extends Polis
 
     public function getQuerySearch($params)
     {
-        $query = Polis::find();
+        $query = JenisAsuransi::find();
 
         $this->load($params);
 
@@ -51,19 +51,10 @@ class PolisSearch extends Polis
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'no_polis' => $this->no_polis,
-            'id_pekerjaan' => $this->id_pekerjaan,
-            'uang_pertanggungan' => $this->uang_pertanggungan,
-            'id_jenis_asuransi' => $this->id_jenis_asuransi,
-            'premi' => $this->premi,
-            'id_agen' => $this->id_agen,
-            'id_supervisor' => $this->id_supervisor,
-            'tanggal' => $this->tanggal,
         ]);
 
         $query->andFilterWhere(['like', 'nama', $this->nama])
-            ->andFilterWhere(['like', 'alamat', $this->alamat])
-            ->andFilterWhere(['like', 'nama_tertanggung', $this->nama_tertanggung]);
+            ->andFilterWhere(['like', 'keterangan', $this->keterangan]);
 
         return $query;
     }

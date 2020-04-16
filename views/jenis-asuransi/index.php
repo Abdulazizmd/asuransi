@@ -3,22 +3,20 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-use app\models\Supervisor;
-
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\AgenSearch */
+/* @var $searchModel app\models\JenisAsuransiSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Daftar Agen';
+$this->title = 'Daftar Jenis Asuransi';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="agen-index card card-default">
+<div class="jenis-asuransi-index card card-default">
 
     <div class="card-header">
 
         <h2 class='card-title'> <i class='fa fa-list'></i> <?=$this->title; ?> </h2>        <div class='card-tools'>
-            <?= Html::a('<i class="fa fa-plus"></i> Tambah Agen', ['create'], ['class' => 'btn btn-success btn-flat btn-sm']) ?>
-            <?= Html::a('<i class="fa fa-print"></i> Export Excel Agen', Yii::$app->request->url.'&export=1', ['class' => 'btn btn-success btn-flat btn-sm']) ?>
+            <?= Html::a('<i class="fa fa-plus"></i> Tambah Jenis Asuransi', ['create'], ['class' => 'btn btn-success btn-flat btn-sm']) ?>
+            <?= Html::a('<i class="fa fa-print"></i> Export Excel Jenis Asuransi', Yii::$app->request->url.'&export=1', ['class' => 'btn btn-success btn-flat btn-sm']) ?>
         </div>
     </div>
 
@@ -34,22 +32,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\SerialColumn',
                 'header' => 'No',
                 'headerOptions' => ['style' => 'text-align:center'],
-                'contentOptions' => ['style' => 'text-align:center']
+                'contentOptions' => ['style' => 'text-align:center;width:20px;']
             ],
 
             [
-                'attribute' => 'id_supervisor',
+                'attribute' => 'nama',
                 'format' => 'raw',
-                'filter' => Supervisor::getList(),
-                'value' => function($data)
-                {
-                    return @$data->supervisor->nama;
-                },
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
             [
-                'attribute' => 'nama',
+                'attribute' => 'keterangan',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],

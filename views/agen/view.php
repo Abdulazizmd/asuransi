@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'id_supervisor',
                 'format' => 'raw',
-                'value' => $model->id_supervisor,
+                'value' => @$model->supervisor->nama,
             ],
             [
                 'attribute' => 'nama',
