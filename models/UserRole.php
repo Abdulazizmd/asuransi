@@ -14,7 +14,7 @@ class UserRole extends \yii\db\ActiveRecord
 {
 
     const ADMIN = 1;
-    const PEGAWAI = 2;
+    const SUPERVISOR = 2;
 
     /**
      * {@inheritdoc}

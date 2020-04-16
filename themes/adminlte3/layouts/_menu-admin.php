@@ -38,7 +38,7 @@ use maswahyu\adminlte\widgets\Menu;
     ['label' => 'SISTEM',['class' => 'nav-header']],
     ['icon' => 'fa fa-user', 'label' => 'User', 'url'=>'#', 'items' => [
         ['label'=>'Admin','icon'=>'fa fa-circle','url'=>['/user/index','id_user_role'=>UserRole::ADMIN]],
-        ['label'=>'Pegawai','icon'=>'fa fa-circle','url'=>['/user/index','id_user_role'=>UserRole::PEGAWAI]],
+        ['label'=>'Supervisor','icon'=>'fa fa-circle','url'=>['/user/index','id_user_role'=>UserRole::SUPERVISOR]],
     ]],
 
     ['label' => 'Logout','icon' => 'fa fa-sign-out-alt', 'url' => ['site/logout'], 'template' => '<a class="nav-link {activeCssClass}" href="{url}" data-method="post">{icon} <p>{label} {icon-right}</p></a>'],

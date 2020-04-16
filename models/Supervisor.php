@@ -46,9 +46,9 @@ class Supervisor extends \yii\db\ActiveRecord
     {
         $query = static::find();
 
-        /*if (User::isNasabah()){
-            $query->andWhere(['id' => Yii::$app->user->identity->id_nasabah]);
-        }*/
+        if (User::isSupervisor()){
+            $query->andWhere(['id' => Yii::$app->user->identity->id_supervisor]);
+        }
 
         $list = [];
 

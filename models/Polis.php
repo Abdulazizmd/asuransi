@@ -63,4 +63,29 @@ class Polis extends \yii\db\ActiveRecord
             'tanggal' => 'Tanggal',
         ];
     }
+
+    public function beforeValidate()
+    {
+        $agen = $this->agen;
+        if ($agen !== null) {
+            $this->id_supervisor = $agen->id_supervisor;
+        }
+
+        return parent::beforeValidate();
+    }
+
+    public function getAgen()
+    {
+        return $this->hasOne(Agen::class, ['id' => 'id_agen']);
+    }
+
+    public function getSupervisor()
+    {
+        return $this->hasOne(Supervisor::class, ['id' => 'id_supervisor']);
+    }
+
+    public function getJenisAsuransi()
+    {
+        return $this->hasOne(JenisAsuransi::class, ['id' => 'id_jenis_asuransi']);
+    }
 }

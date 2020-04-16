@@ -8,10 +8,16 @@ use maswahyu\adminlte\widgets\Menu;
 <?= Menu::widget(['items' => [
     ['icon' => 'fa fa-tachometer-alt', 'label' => 'Dashboard', 'url' => ['/dashboard/index']],
 
-    ['label' => 'Kegiatan', 'icon' => 'fa fa-check', 'url' => '#', 'items' => [
-        ['icon' => 'far fa-circle', 'label' => 'List Kegiatan', 'url' => ['/kegiatan/index']],
-        ['icon' => 'far fa-circle', 'label' => 'Tambah Kegiatan', 'url' => ['/kegiatan/create']],
+    ['label' => 'Polis', 'icon' => 'fa fa-handshake', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Polis', 'url' => ['/polis/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Polis', 'url' => ['/polis/create']],
         /*['icon' => 'far fa-circle', 'label' => 'Statistik kegiatan', 'url' => ['/output/index']],*/
+    ]],
+
+    ['label' => 'DATA MASTER',['class' => 'nav-header']],
+    ['label' => 'Agen', 'icon' => 'fa fa-users', 'url' => '#', 'items' => [
+        ['icon' => 'far fa-circle', 'label' => 'List Agen', 'url' => ['/agen/index']],
+        ['icon' => 'far fa-circle', 'label' => 'Tambah Agen', 'url' => ['/agen/create']],
     ]],
 
     ['label' => 'SISTEM',['class' => 'nav-header']],

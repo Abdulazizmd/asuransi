@@ -3,8 +3,8 @@
 namespace app\models;
 
 use Yii;
-use app\models\pegawai;
-use app\models\User_role;
+use app\models\Supervisor;
+use app\models\UserRole;
 
 use yii2tech\ar\softdelete\SoftDeleteBehavior;
 
@@ -13,7 +13,6 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
  *
  * @property integer $id
  * @property integer $role
- * @property string $kode_pegawai
  * @property string $username
  * @property string $password
  * @property string $nama
@@ -21,18 +20,15 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
  * @property string $auth_key
  * @property string $access_token
  *
- * @property Pegawai $kodePegawai
  */
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-    /*const ROLE_ADMIN = 1;
-    const ROLE_PEGAWAI = 2;*/
 
     public $auth_key;
     public $access_token;
 
     const ROLE_ADMIN = 1;
-    const ROLE_PEGAWAI = 2;
+    const ROLE_SUPERVISOR = 2;
 
     /**
      * @inheritdoc
@@ -50,7 +46,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['id_user_role', 'username', 'password'], 'required'],
             ['username', 'unique'],
-            [['id_user_role', 'id_pegawai'], 'integer'],
+            [['id_user_role', 'id_supervisor'], 'integer'],
             [['username', 'password'], 'string', 'max' => 255],
         ];
     }
@@ -63,7 +59,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return [
             'id' => 'ID',
             'id_user_role' => 'Role',
-            'id_pegawai' => 'Pegawai',
+            'id_supervisor' => 'Supervisor',
             'username' => 'Username',
             'password' => 'Password',
         ];
@@ -141,7 +137,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         if ($this->id_user_role === self::ROLE_ADMIN) {
             return 'Admin';
         } else {
-            return 'Pegawai';
+            return 'Supervisor';
         }
     }
 
@@ -150,9 +146,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return $this->hasOne(UserRole::className(),['id' => 'id_user_role']);
     }
 
-    public function getPegawai()
+    public function getSupervisor()
     {
-        return $this->hasOne(Pegawai::className(), ['id' => 'id_pegawai']);
+        return $this->hasOne(Supervisor::className(), ['id' => 'id_supervisor']);
     }
 
     public function getRelationField($relation,$field)
@@ -176,9 +172,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return false;
     }
 
-    public static function isPegawai()
+    public static function isSupervisor()
     {
-        if(Yii::$app->user->identity->id_user_role == self::ROLE_PEGAWAI){
+        if(Yii::$app->user->identity->id_user_role == self::ROLE_SUPERVISOR){
             return true;
         } else{
             return false;
@@ -188,11 +184,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
 
-    public static function getIdPegawai()
+    public static function getIdSupervisor()
     {
-        if(User::isPegawai())
+        if(User::isSupervisor())
         {
-            return Yii::$app->user->identity->id_pegawai;
+            return Yii::$app->user->identity->id_supervisor;
         }
     }
 
@@ -201,7 +197,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             self::ROLE_ADMIN => 'Admin',
-            self::ROLE_PEGAWAI => 'Pegawai',
+            self::ROLE_SUPERVISOR => 'Supervisor',
         ];
     }
 

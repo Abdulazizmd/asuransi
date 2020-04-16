@@ -3,6 +3,10 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use app\models\JenisAsuransi;
+use app\models\Agen;
+use app\models\Supervisor;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PolisSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -47,61 +51,40 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
-            /*[
-                'attribute' => 'alamat',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],
-            [
-                'attribute' => 'id_pekerjaan',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],
-            [
-                'attribute' => 'nama_tertanggung',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],
-            [
-                'attribute' => 'uang_pertanggungan',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],*/
             [
                 'attribute' => 'id_jenis_asuransi',
+                'filter' => JenisAsuransi::getList(),
                 'format' => 'raw',
+                'value' => function ($data)
+                {
+                    return @$data->jenisAsuransi->nama;
+                },
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
-            /*[
-                'attribute' => 'premi',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],*/
             [
                 'attribute' => 'id_agen',
+                'filter' => Agen::getList(),
                 'format' => 'raw',
+                'value' => function ($data)
+                {
+                    return @$data->agen->nama;
+                },
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
             [
                 'attribute' => 'id_supervisor',
+                'filter' => Supervisor::getList(),
                 'format' => 'raw',
+                'value' => function ($data)
+                {
+                    return @$data->supervisor->nama;
+                },
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
-            /*[
-                'attribute' => 'tanggal',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],*/
-
+            
             [
                 'class' => 'yii\grid\ActionColumn',
                 'contentOptions' => ['style' => 'text-align:center;width:100px']

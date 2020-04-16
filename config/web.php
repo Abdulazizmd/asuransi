@@ -9,8 +9,8 @@ use yii\helpers\Html;
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'WFH Pangandaran',
-    'name' => 'WFH Pangandaran',
+    'id' => 'Asuransi',
+    'name' => 'Asuransi',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'timeZone' => 'Asia/Jakarta',
