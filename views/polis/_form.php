@@ -1,7 +1,15 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use kartik\form\ActiveForm;
+
+use kartik\date\DatePicker;
+use kartik\select2\Select2;
+use kartik\number\NumberControl;
+
+use app\models\Agen;
+use app\models\Pekerjaan;
+use app\models\JenisAsuransi;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Polis */
@@ -9,9 +17,8 @@ use yii\bootstrap\ActiveForm;
 ?>
 
 <?php $form = ActiveForm::begin([
-    'layout'=>'horizontal',
+    'type'=>'vertical',
     'enableAjaxValidation'=>false,
-    'enableClientValidation'=>false,
     'fieldConfig' => [
         'horizontalCssClasses' => [
             'label' => 'col-sm-2',
@@ -31,27 +38,77 @@ use yii\bootstrap\ActiveForm;
 
         <?= $form->errorSummary($model); ?>
 
+        <?= $form->field($model, 'tanggal')->widget(DatePicker::class, [
+            'removeButton' => false,
+            'value' => date('Y-m-d'),
+            'options' => ['placeholder' => 'Tanggal'],
+            'pluginOptions' => [
+                'autoclose'=>true,
+                'format' => 'yyyy-mm-dd',
+        ] ]) ?>
+
         <?= $form->field($model, 'no_polis')->textInput() ?>
 
         <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'alamat')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'alamat')->textArea(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'id_pekerjaan')->textInput() ?>
+        <?= $form->field($model, 'id_pekerjaan')->widget(Select2::class, [
+            'data' =>  Pekerjaan::getList(),
+            'options' => [
+                'placeholder' => '- Pilih Pekerjaan -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
 
         <?= $form->field($model, 'nama_tertanggung')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'uang_pertanggungan')->textInput() ?>
+        <?= $form->field($model, 'uang_pertanggungan',[
+            'addon' => ['prepend' => ['content'=>'Rp.']],
+        ])->widget(NumberControl::class, [
 
-        <?= $form->field($model, 'id_jenis_asuransi')->textInput() ?>
+            'maskedInputOptions' => [
+                'groupSeparator' => '.',
+                'radixPoint' => ',',
+                'prefix' => '',
+                'allowMinus' => false,
+            ],
+        ]); ?>
 
-        <?= $form->field($model, 'premi')->textInput() ?>
+        <?= $form->field($model, 'id_jenis_asuransi')->widget(Select2::class, [
+            'data' =>  JenisAsuransi::getList(),
+            'options' => [
+                'placeholder' => '- Pilih Jenis Asuransi -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
 
-        <?= $form->field($model, 'id_agen')->textInput() ?>
+        <?= $form->field($model, 'premi',[
+            'addon' => ['prepend' => ['content'=>'Rp.']],
+        ])->widget(NumberControl::class, [
 
-        <?= $form->field($model, 'id_supervisor')->textInput() ?>
+            'maskedInputOptions' => [
+                'groupSeparator' => '.',
+                'radixPoint' => ',',
+                'prefix' => '',
+                'allowMinus' => false,
+            ],
+        ]); ?>
 
-        <?= $form->field($model, 'tanggal')->textInput() ?>
+        <?= $form->field($model, 'id_agen')->widget(Select2::class, [
+            'data' =>  Agen::getList(),
+            'options' => [
+                'placeholder' => '- Pilih Agen -',
+            ],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]); ?>
+
 
         <?= Html::hiddenInput('referrer',$referrer); ?>
 

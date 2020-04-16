@@ -51,15 +51,15 @@ class Polis extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'no_polis' => 'No Polis',
-            'nama' => 'Nama',
+            'nama' => 'Nama Pemegang Polis',
             'alamat' => 'Alamat',
-            'id_pekerjaan' => 'Id Pekerjaan',
+            'id_pekerjaan' => 'Pekerjaan',
             'nama_tertanggung' => 'Nama Tertanggung',
             'uang_pertanggungan' => 'Uang Pertanggungan',
-            'id_jenis_asuransi' => 'Id Jenis Asuransi',
+            'id_jenis_asuransi' => 'Jenis Asuransi',
             'premi' => 'Premi',
-            'id_agen' => 'Id Agen',
-            'id_supervisor' => 'Id Supervisor',
+            'id_agen' => 'Agen',
+            'id_supervisor' => 'Supervisor',
             'tanggal' => 'Tanggal',
         ];
     }

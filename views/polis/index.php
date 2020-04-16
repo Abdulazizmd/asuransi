@@ -36,12 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             [
-                'attribute' => 'id',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'text-align:center;'],
-                'contentOptions' => ['style' => 'text-align:center;'],
-            ],
-            [
                 'attribute' => 'no_polis',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
@@ -53,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
-            [
+            /*[
                 'attribute' => 'alamat',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
@@ -76,19 +70,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
-            ],
+            ],*/
             [
                 'attribute' => 'id_jenis_asuransi',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
-            [
+            /*[
                 'attribute' => 'premi',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
-            ],
+            ],*/
             [
                 'attribute' => 'id_agen',
                 'format' => 'raw',
@@ -101,12 +95,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
             ],
-            [
+            /*[
                 'attribute' => 'tanggal',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
-            ],
+            ],*/
 
             [
                 'class' => 'yii\grid\ActionColumn',

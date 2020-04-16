@@ -43,4 +43,16 @@ class JenisAsuransi extends \yii\db\ActiveRecord
             'keterangan' => 'Keterangan',
         ];
     }
+
+    public static function getList()
+    {
+        $query = static::find();
+
+        $list = [];
+
+        foreach($query->all() as $data) {
+            $list[$data->id] = $data->nama;
+        }
+        return $list;
+    }
 }

@@ -45,6 +45,18 @@ class Agen extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getList()
+    {
+        $query = static::find();
+
+        $list = [];
+
+        foreach($query->all() as $data) {
+            $list[$data->id] = $data->nama;
+        }
+        return $list;
+    }
+
     public function getSupervisor()
     {
         return $this->hasOne(Supervisor::class, ['id' => 'id_supervisor']);
