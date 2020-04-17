@@ -5,8 +5,7 @@ use maswahyu\adminlte\assets\AdminLteAsset;
 
 /* @var $this yii\web\View */
 
-\app\assets\AppAsset::register($this);
-
+app\assets\AppAsset::register($this);
 $assetBundle = AdminLteAsset::register($this);
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
 
