@@ -22,7 +22,7 @@ use app\models\JenisAsuransi;
                         'subtitle' => ['text' => 'Jumlah Polis'],
                         'exporting' => ['enabled' => true],
                         'xAxis' => [
-                            'categories' => Supervisor::getList(),
+                            'categories' => Supervisor::getListGrafik(),
                         ],
                         'yAxis' => [
                             'title' => [
@@ -33,7 +33,7 @@ use app\models\JenisAsuransi;
                             [
                                 'type' => 'column',
                                 'name' => 'Jumlah Polis',
-                                'data' => Supervisor::getGrafikList(),
+                                'data' => Supervisor::getGrafikPolis(),
                                 'showInLegend' => false,
                                 'colorByPoint' => true
                             ],

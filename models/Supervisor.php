@@ -85,7 +85,7 @@ class Supervisor extends \yii\db\ActiveRecord
         return $data;
     }
 
-    /*public static function getListGrafik()
+    public static function getListGrafik()
     {
         $list = [];
         foreach (self::find()->all() as $supervisor) {
@@ -104,5 +104,5 @@ class Supervisor extends \yii\db\ActiveRecord
         }
 
         return $list;
-    }*/
+    }
 }
