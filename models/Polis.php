@@ -88,4 +88,9 @@ class Polis extends \yii\db\ActiveRecord
     {
         return $this->hasOne(JenisAsuransi::class, ['id' => 'id_jenis_asuransi']);
     }
+
+    public function getPekerjaan()
+    {
+        return $this->hasOne(Pekerjaan::class, ['id' => 'id_pekerjaan']);
+    }
 }

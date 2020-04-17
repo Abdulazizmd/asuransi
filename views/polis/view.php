@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+use app\components\Helper;
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Polis */
 
@@ -23,11 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'template' => '<tr><th width="180px" style="text-align:right">{label}</th><td>{value}</td></tr>',
         'attributes' => [
             [
-                'attribute' => 'id',
-                'format' => 'raw',
-                'value' => $model->id,
-            ],
-            [
                 'attribute' => 'no_polis',
                 'format' => 'raw',
                 'value' => $model->no_polis,
@@ -45,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'id_pekerjaan',
                 'format' => 'raw',
-                'value' => $model->id_pekerjaan,
+                'value' => @$model->pekerjaan->nama,
             ],
             [
                 'attribute' => 'nama_tertanggung',
@@ -55,32 +52,32 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'uang_pertanggungan',
                 'format' => 'raw',
-                'value' => $model->uang_pertanggungan,
+                'value' => 'Rp. '.Helper::rp($model->uang_pertanggungan),
             ],
             [
                 'attribute' => 'id_jenis_asuransi',
                 'format' => 'raw',
-                'value' => $model->id_jenis_asuransi,
+                'value' => @$model->jenisAsuransi->nama,
             ],
             [
                 'attribute' => 'premi',
                 'format' => 'raw',
-                'value' => $model->premi,
+                'value' => 'Rp. '.Helper::rp($model->premi),
             ],
             [
                 'attribute' => 'id_agen',
                 'format' => 'raw',
-                'value' => $model->id_agen,
+                'value' => @$model->agen->nama,
             ],
             [
                 'attribute' => 'id_supervisor',
                 'format' => 'raw',
-                'value' => $model->id_supervisor,
+                'value' => @$model->supervisor->nama,
             ],
             [
                 'attribute' => 'tanggal',
                 'format' => 'raw',
-                'value' => $model->tanggal,
+                'value' => Helper::getTanggal($model->tanggal),
             ],
         ],
     ]) ?>
