@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use app\models\UserRole;
 use kartik\select2\Select2;
-use app\models\Pegawai;
+use app\models\Supervisor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
@@ -43,11 +43,11 @@ use app\models\Pegawai;
             
         <?php } ?>
         
-        <?php if($model->id_user_role == UserRole::PEGAWAI) { ?>
+        <?php if($model->id_user_role == UserRole::SUPERVISOR) { ?>
             
-            <?= $form->field($model, 'id_pegawai')->dropDownList(
-                \app\models\Pegawai::getList(),
-                ['prompt'=>'- Pilih Pegawai -']
+            <?= $form->field($model, 'id_supervisor')->dropDownList(
+                \app\models\Supervisor::getList(),
+                ['prompt'=>'- Pilih Supervisor -']
             ) ?>
 
         <?php } ?>

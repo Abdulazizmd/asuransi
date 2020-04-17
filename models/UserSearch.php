@@ -20,7 +20,7 @@ class UserSearch extends User
         return [
             [['id', 'id_user_role'], 'integer'],
             [['username', 'password'], 'safe'],
-            [['id_pegawai'], 'integer']
+            [['id_supervisor'], 'integer']
         ];
     }
 
@@ -53,7 +53,7 @@ class UserSearch extends User
         $query->andFilterWhere([
             'id' => $this->id,
             'id_user_role' => $this->id_user_role,
-            'id_pegawai' => $this->id_pegawai,
+            'id_supervisor' => $this->id_supervisor,
         ]);
 
         $query

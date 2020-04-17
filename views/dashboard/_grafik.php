@@ -3,6 +3,7 @@
 use miloschuman\highcharts\Highcharts;
 
 use app\models\Supervisor;
+use app\models\JenisAsuransi;
 
 
 ?>
@@ -63,6 +64,35 @@ use app\models\Supervisor;
                                 'type' => 'pie',
                                 'name' => 'Polis',
                                 'data' => Supervisor::getGrafikList(),
+                            ],
+                        ],
+                    ],
+                ]);?>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-6">
+        <div class="card card-primary">
+            <div class="card-header with-border">
+                <h3 class="card-title">Diagram Jumlah Polis Berdasarkan Jenis Asuransi</h3>
+            </div>
+            <div class="card-body">
+                <?= Highcharts::widget([
+                    'options' => [
+                        'credits' => false,
+                        'title' => false,
+                        'exporting' => ['enabled' => true],
+                        'plotOptions' => [
+                            'pie' => [
+                                'cursor' => 'pointer',
+                            ],
+                        ],
+                        'series' => [
+                            [
+                                'type' => 'pie',
+                                'name' => 'Polis',
+                                'data' => JenisAsuransi::getGrafikList(),
                             ],
                         ],
                     ],

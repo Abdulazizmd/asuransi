@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 use app\models\UserRole;
-use app\models\Pegawai;
+use app\models\Supervisor;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserSearch */
@@ -44,14 +44,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'text-align:left;'],
             ],
             [
-                'attribute' => 'id_pegawai',
+                'attribute' => 'id_supervisor',
                 'options' => ['style' => 'width:250px'],
-                'filter' => Pegawai::getList(),
-                'visible' => $searchModel->id_user_role == UserRole::PEGAWAI,
+                'filter' => Supervisor::getList(),
+                'visible' => $searchModel->id_user_role == UserRole::SUPERVISOR,
                 'headerOptions' => ['style' => 'text-align:center;'],
                 'contentOptions' => ['style' => 'text-align:center;'],
                 'value' => function($data) {
-                    return @$data->pegawai->nama;
+                    return @$data->supervisor->nama;
                 }
             ],
             [

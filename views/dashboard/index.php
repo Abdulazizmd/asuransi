@@ -3,6 +3,8 @@
 use app\components\Helper;
 use yii\helpers\Html;
 
+use app\models\User;
+
 /* @var $this yii\web\View */
 $this->title = 'Dashboard';
 ?>
@@ -11,4 +13,9 @@ $this->title = 'Dashboard';
 
 <?php /*echo $this->render('_daftar-kegiatan');*/ ?>
 
-<?php echo $this->render ('_grafik'); ?>
+<?php 
+if(User::isAdmin()){
+	echo $this->render ('_grafik'); 
+}
+
+?>

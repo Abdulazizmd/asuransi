@@ -55,4 +55,20 @@ class JenisAsuransi extends \yii\db\ActiveRecord
         }
         return $list;
     }
+
+    public function getManyPolis()
+    {
+        return $this->hasMany(Polis::class, ['id_jenis_asuransi' => 'id']);
+    }
+
+    public static function getGrafikList()
+    {   
+        $query = static::find();
+
+        $data = [];
+        foreach ($query->all() as $jenisAsuransi) {
+            $data[] = [($jenisAsuransi->nama), (int) $jenisAsuransi->getManyPolis()->count()];
+        }
+        return $data;
+    }
 }
